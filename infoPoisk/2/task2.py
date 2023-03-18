@@ -5,9 +5,7 @@ import os
 
 morph = pymorphy3.MorphAnalyzer()
 
-# CONJ- союз
-# INTJ- междометие
-functors_pos = {'INTJ', 'PRCL', 'CONJ', 'PREP'}  # function words - предлоги и незначащие слова
+functors_pos = {'INTJ', 'PRCL', 'CONJ', 'PREP'}
 path_of_files = "texts/"
 
 
@@ -34,7 +32,6 @@ def lemmatize(words, tokenized_map):
 
 
 def get_clear_words(text):
-    # Заменяем все символы на пробел, если это не буква
     spaced_text = "".join([c if c.isalpha() else ' ' for c in text])
     words = spaced_text.split()
     clear_words = []
@@ -63,9 +60,7 @@ for f in files:
 
         all_tokens = tokenized_map.values()
         with io.open('tokens/tokens_' + str(f), 'w', encoding="utf-8") as ff:
-            # all_tokens = np.array(all_tokens)
             all_tokens =  [item for sublist in all_tokens for item in sublist]
-            # all_tokens = list(all_tokens.split('\n'))
             all_tokens.sort()
             print(all_tokens)
             for t in all_tokens:

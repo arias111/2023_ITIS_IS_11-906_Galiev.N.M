@@ -5,7 +5,9 @@ import os
 
 morph = pymorphy3.MorphAnalyzer()
 
-functors_pos = {'INTJ', 'PRCL', 'CONJ', 'PREP'}
+# CONJ- союз
+# INTJ- междометие
+functors_pos = {'INTJ', 'PRCL', 'CONJ', 'PREP'}  # function words - предлоги и незначащие слова
 path_of_files = "texts/"
 
 
@@ -64,7 +66,7 @@ for f in files:
             all_tokens.sort()
             print(all_tokens)
             for t in all_tokens:
-               ff.write(f"/{t}\n")
+               ff.write(f"{t}\n")
 
         with io.open('lemmas/lemmas_' + str(f), 'w', encoding="utf-8") as ff:
             items = tokenized_map.items()

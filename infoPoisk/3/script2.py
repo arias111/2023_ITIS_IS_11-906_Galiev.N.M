@@ -50,5 +50,3 @@ if len(result) == 0:
 else:
     result = set([int(i) for i in result])
     print(sorted(result))
-# отзыв & !статья & !материал
-# 25
